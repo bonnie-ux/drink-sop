@@ -3,124 +3,291 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <title>橘時咖啡｜飲品配方查詢</title>
+
 <style>
-*{box-sizing:border-box}
+
+*{
+  box-sizing:border-box;
+}
+
 body{
- <body>
+  margin:0;
+  font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;
+  background:#f5f2ed;
+  color:#2b2b2b;
+}
 
-<div id="loginPage" style="
-position:fixed;
-inset:0;
-background:#f5f2ed;
-display:flex;
-align-items:center;
-justify-content:center;
-z-index:9999;
-">
+/* 密碼頁 */
 
-<div style="
-background:white;
-padding:40px;
-border-radius:24px;
-width:90%;
-max-width:380px;
-box-shadow:0 10px 40px rgba(0,0,0,.12);
-text-align:center;
-">
+#loginPage{
+  position:fixed;
+  inset:0;
+  background:#f5f2ed;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
 
-<div style="
-font-size:32px;
-font-weight:900;
-color:#ff6b00;
-margin-bottom:10px;
-">
-橘時咖啡
-</div>
+.login-box{
+  background:white;
+  padding:40px;
+  border-radius:24px;
+  width:90%;
+  max-width:380px;
+  box-shadow:0 10px 40px rgba(0,0,0,.12);
+  text-align:center;
+}
 
-<div style="
-color:#777;
-margin-bottom:24px;
-font-size:14px;
-">
-內部飲品配方系統
-</div>
+.login-title{
+  font-size:32px;
+  font-weight:900;
+  color:#ff6b00;
+  margin-bottom:10px;
+}
 
-<input
-id="passwordInput"
-type="password"
-placeholder="請輸入密碼"
-style="
-width:100%;
-padding:14px;
-border:none;
-border-radius:14px;
-background:#f1f1f1;
-font-size:16px;
-outline:none;
-margin-bottom:16px;
-"
-/>
+.login-sub{
+  color:#777;
+  margin-bottom:24px;
+  font-size:14px;
+}
 
-<button onclick="checkPassword()" style="
-width:100%;
-padding:14px;
-border:none;
-border-radius:14px;
-background:#ff6b00;
-color:white;
-font-size:16px;
-font-weight:900;
-cursor:pointer;
-">
-進入系統
-</button>
+.login-input{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:14px;
+  background:#f1f1f1;
+  font-size:16px;
+  outline:none;
+  margin-bottom:16px;
+}
 
-<div id="errorText" style="
-color:#d92d20;
-font-size:13px;
-margin-top:14px;
-display:none;
-">
-密碼錯誤
-</div>
+.login-btn{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:14px;
+  background:#ff6b00;
+  color:white;
+  font-size:16px;
+  font-weight:900;
+  cursor:pointer;
+}
 
-</div>
-</div>
+#errorText{
+  color:#d92d20;
+  font-size:13px;
+  margin-top:14px;
+  display:none;
+}
+
+/* 主頁 */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:rgba(255,255,255,.96);
+  padding:18px 20px;
+  box-shadow:0 2px 12px rgba(0,0,0,.06);
+}
+
+.title{
+  font-size:30px;
+  font-weight:900;
+  color:#ff6b00;
+}
+
+.sub{
+  margin-top:5px;
+  color:#777;
+  font-size:14px;
+}
+
+.search{
+  margin-top:16px;
+}
+
+.search input{
+  width:100%;
+  padding:14px 16px;
+  border:none;
+  border-radius:14px;
+  background:#f1f1f1;
+  font-size:16px;
+  outline:none;
+}
+
+.container{
+  max-width:1280px;
+  margin:auto;
+  padding:22px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:18px;
+}
+
+.card{
+  background:#fff;
+  border-radius:24px;
+  padding:22px;
+  box-shadow:0 4px 18px rgba(0,0,0,.05);
+}
+
+.badge{
+  display:inline-block;
+  background:#fff1e7;
+  color:#ff6b00;
+  border-radius:999px;
+  padding:6px 12px;
+  font-size:12px;
+  font-weight:800;
+  margin-bottom:12px;
+}
+
+.drink-name{
+  font-size:23px;
+  font-weight:900;
+  margin-bottom:14px;
+}
+
+.steps{
+  line-height:1.9;
+  color:#555;
+  font-size:15px;
+}
+
+.step-line{
+  display:block;
+  padding:4px 0;
+  border-bottom:1px dashed rgba(0,0,0,.05);
+}
+
+.step-no{
+  color:#ff6b00;
+  font-weight:900;
+}
+
+.amount{
+  color:#d9361c;
+  font-weight:900;
+}
+
+footer{
+  text-align:center;
+  padding:40px 20px;
+  color:#888;
+}
+
+</style>
+</head>
+
 <body>
+
+<!-- 密碼頁 -->
+
+<div id="loginPage">
+
+  <div class="login-box">
+
+    <div class="login-title">
+      橘時咖啡
+    </div>
+
+    <div class="login-sub">
+      內部飲品配方系統
+    </div>
+
+    <input
+      id="passwordInput"
+      type="password"
+      placeholder="請輸入密碼"
+      class="login-input"
+    />
+
+    <button onclick="checkPassword()" class="login-btn">
+      進入系統
+    </button>
+
+    <div id="errorText">
+      密碼錯誤
+    </div>
+
+  </div>
+
+</div>
+
+<!-- 主頁 -->
+
 <header>
-  <div class="title">橘時咖啡｜飲品配方查詢</div>
-  <div class="sub">OrangeTime Coffee Internal SOP</div>
+  <div class="title">
+    橘時咖啡｜飲品配方查詢
+  </div>
+
+  <div class="sub">
+    OrangeTime Coffee Internal SOP
+  </div>
+
   <div class="search">
-    <input type="text" id="searchInput" placeholder="搜尋飲品名稱、分類、材料..." />
-    <div class="count" id="countText"></div>
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="搜尋飲品名稱..."
+    />
   </div>
 </header>
 
 <div class="container">
-  <div class="category-tabs" id="tabs"></div>
-  <div id="app"></div>
-  <div class="empty" id="empty">找不到符合的配方</div>
+
+  <div class="grid" id="app"></div>
+
 </div>
 
-<footer>橘時咖啡內部教育訓練系統</footer>
+<footer>
+橘時咖啡內部教育訓練系統
+</footer>
+
+<script>
+
+/* 密碼 */
+
 function checkPassword(){
-  const password = document.getElementById('passwordInput').value;
+
+  const password =
+    document.getElementById('passwordInput').value;
 
   if(password === 'otc2026'){
-    document.getElementById('loginPage').style.display='none';
+
+    document.getElementById('loginPage')
+      .style.display='none';
+
   }else{
-    document.getElementById('errorText').style.display='block';
+
+    document.getElementById('errorText')
+      .style.display='block';
+
   }
+
 }
 
-document.getElementById('passwordInput')
+document
+.getElementById('passwordInput')
 .addEventListener('keydown',function(e){
+
   if(e.key === 'Enter'){
     checkPassword();
   }
+
 });
-<script>
+
+/* 配方 */
+
 const recipes = [
   {
     "category": "義式咖啡",
