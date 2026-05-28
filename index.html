@@ -7,68 +7,86 @@
 <style>
 *{box-sizing:border-box}
 body{
-  margin:0;
-  font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;
-  background:#f5f2ed;
-  color:#2b2b2b;
-}
-header{
-  position:sticky;
-  top:0;
-  z-index:10;
-  background:rgba(255,255,255,.96);
-  padding:18px 20px;
-  box-shadow:0 2px 12px rgba(0,0,0,.06);
-  backdrop-filter:blur(10px);
-}
-.title{font-size:30px;font-weight:900;color:#ff6b00}
-.sub{margin-top:5px;color:#777;font-size:14px}
-.search{margin-top:16px;display:flex;gap:10px;align-items:center}
-.search input{
-  width:100%;padding:14px 16px;border:none;border-radius:14px;
-  background:#f1f1f1;font-size:16px;outline:none;
-}
-.count{color:#888;font-size:13px;white-space:nowrap}
-.container{max-width:1280px;margin:auto;padding:22px}
-.category-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
-.tab{
-  border:none;background:#fff;padding:10px 14px;border-radius:999px;
-  box-shadow:0 2px 8px rgba(0,0,0,.05);cursor:pointer;font-weight:800;color:#444;
-}
-.tab.active{background:#ff6b00;color:#fff}
-.section{margin-bottom:40px}
-.section-title{font-size:26px;font-weight:900;margin:26px 0 16px;color:#2b2b2b}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px}
-.card{
-  background:#fff;border-radius:24px;padding:22px;
-  box-shadow:0 4px 18px rgba(0,0,0,.05);
-  border:1px solid rgba(0,0,0,.03);
-}
-.badge{
-  display:inline-block;background:#fff1e7;color:#ff6b00;border-radius:999px;
-  padding:6px 12px;font-size:12px;font-weight:800;margin-bottom:12px;
-}
-.drink-name{font-size:23px;font-weight:900;margin-bottom:14px;line-height:1.35}
-.steps{line-height:1.9;color:#555;font-size:15.5px}
-.step-line{display:block;padding:3px 0;border-bottom:1px dashed rgba(0,0,0,.05)}
-.step-line:last-child{border-bottom:none}
-.step-no{color:#ff6b00;font-weight:900;margin-right:4px}
-.amount{color:#d9361c;font-weight:900;background:#fff3f0;padding:1px 4px;border-radius:6px}
-.tool{color:#1f6feb;font-weight:800}
-.note{color:#079455;font-weight:800;background:#ecfdf3;padding:1px 4px;border-radius:6px}
-.empty{display:none;text-align:center;color:#888;padding:50px 20px}
-footer{text-align:center;padding:40px 20px;color:#888}
-.hidden{display:none!important}
-@media(max-width:640px){
-  header{padding:16px}
-  .title{font-size:24px}
-  .container{padding:16px}
-  .grid{grid-template-columns:1fr}
-  .drink-name{font-size:21px}
-  .search{flex-direction:column;align-items:stretch}
-}
-</style>
-</head>
+ <body>
+
+<div id="loginPage" style="
+position:fixed;
+inset:0;
+background:#f5f2ed;
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:9999;
+">
+
+<div style="
+background:white;
+padding:40px;
+border-radius:24px;
+width:90%;
+max-width:380px;
+box-shadow:0 10px 40px rgba(0,0,0,.12);
+text-align:center;
+">
+
+<div style="
+font-size:32px;
+font-weight:900;
+color:#ff6b00;
+margin-bottom:10px;
+">
+橘時咖啡
+</div>
+
+<div style="
+color:#777;
+margin-bottom:24px;
+font-size:14px;
+">
+內部飲品配方系統
+</div>
+
+<input
+id="passwordInput"
+type="password"
+placeholder="請輸入密碼"
+style="
+width:100%;
+padding:14px;
+border:none;
+border-radius:14px;
+background:#f1f1f1;
+font-size:16px;
+outline:none;
+margin-bottom:16px;
+"
+/>
+
+<button onclick="checkPassword()" style="
+width:100%;
+padding:14px;
+border:none;
+border-radius:14px;
+background:#ff6b00;
+color:white;
+font-size:16px;
+font-weight:900;
+cursor:pointer;
+">
+進入系統
+</button>
+
+<div id="errorText" style="
+color:#d92d20;
+font-size:13px;
+margin-top:14px;
+display:none;
+">
+密碼錯誤
+</div>
+
+</div>
+</div>
 <body>
 <header>
   <div class="title">橘時咖啡｜飲品配方查詢</div>
@@ -86,7 +104,22 @@ footer{text-align:center;padding:40px 20px;color:#888}
 </div>
 
 <footer>橘時咖啡內部教育訓練系統</footer>
+function checkPassword(){
+  const password = document.getElementById('passwordInput').value;
 
+  if(password === 'otc2026'){
+    document.getElementById('loginPage').style.display='none';
+  }else{
+    document.getElementById('errorText').style.display='block';
+  }
+}
+
+document.getElementById('passwordInput')
+.addEventListener('keydown',function(e){
+  if(e.key === 'Enter'){
+    checkPassword();
+  }
+});
 <script>
 const recipes = [
   {
