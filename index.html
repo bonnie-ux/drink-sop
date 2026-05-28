@@ -3,291 +3,97 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
 <title>橘時咖啡｜飲品配方查詢</title>
-
 <style>
-
-*{
-  box-sizing:border-box;
-}
-
+*{box-sizing:border-box}
 body{
   margin:0;
   font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;
   background:#f5f2ed;
   color:#2b2b2b;
 }
-
-/* 密碼頁 */
-
 #loginPage{
-  position:fixed;
-  inset:0;
-  background:#f5f2ed;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:9999;
+  position:fixed;inset:0;background:#f5f2ed;display:flex;
+  align-items:center;justify-content:center;z-index:9999;
 }
-
 .login-box{
-  background:white;
-  padding:40px;
-  border-radius:24px;
-  width:90%;
-  max-width:380px;
-  box-shadow:0 10px 40px rgba(0,0,0,.12);
-  text-align:center;
+  background:#fff;padding:40px;border-radius:24px;width:90%;max-width:380px;
+  box-shadow:0 10px 40px rgba(0,0,0,.12);text-align:center;
 }
-
-.login-title{
-  font-size:32px;
-  font-weight:900;
-  color:#ff6b00;
-  margin-bottom:10px;
-}
-
-.login-sub{
-  color:#777;
-  margin-bottom:24px;
-  font-size:14px;
-}
-
-.login-input{
-  width:100%;
-  padding:14px;
-  border:none;
-  border-radius:14px;
-  background:#f1f1f1;
-  font-size:16px;
-  outline:none;
-  margin-bottom:16px;
-}
-
-.login-btn{
-  width:100%;
-  padding:14px;
-  border:none;
-  border-radius:14px;
-  background:#ff6b00;
-  color:white;
-  font-size:16px;
-  font-weight:900;
-  cursor:pointer;
-}
-
-#errorText{
-  color:#d92d20;
-  font-size:13px;
-  margin-top:14px;
-  display:none;
-}
-
-/* 主頁 */
-
+.login-title{font-size:32px;font-weight:900;color:#ff6b00;margin-bottom:10px}
+.login-sub{color:#777;margin-bottom:24px;font-size:14px}
+.login-input{width:100%;padding:14px;border:none;border-radius:14px;background:#f1f1f1;font-size:16px;outline:none;margin-bottom:16px}
+.login-btn{width:100%;padding:14px;border:none;border-radius:14px;background:#ff6b00;color:white;font-size:16px;font-weight:900;cursor:pointer}
+#errorText{color:#d92d20;font-size:13px;margin-top:14px;display:none}
 header{
-  position:sticky;
-  top:0;
-  z-index:10;
-  background:rgba(255,255,255,.96);
-  padding:18px 20px;
-  box-shadow:0 2px 12px rgba(0,0,0,.06);
+  position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);
+  padding:18px 20px;box-shadow:0 2px 12px rgba(0,0,0,.06);backdrop-filter:blur(10px);
 }
-
-.title{
-  font-size:30px;
-  font-weight:900;
-  color:#ff6b00;
+.title{font-size:30px;font-weight:900;color:#ff6b00}
+.sub{margin-top:5px;color:#777;font-size:14px}
+.search{margin-top:16px;display:flex;gap:10px;align-items:center}
+.search input{width:100%;padding:14px 16px;border:none;border-radius:14px;background:#f1f1f1;font-size:16px;outline:none}
+.count{color:#888;font-size:13px;white-space:nowrap}
+.container{max-width:1280px;margin:auto;padding:22px}
+.category-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
+.tab{border:none;background:#fff;padding:10px 14px;border-radius:999px;box-shadow:0 2px 8px rgba(0,0,0,.05);cursor:pointer;font-weight:800;color:#444}
+.tab.active{background:#ff6b00;color:#fff}
+.section{margin-bottom:40px}
+.section-title{font-size:26px;font-weight:900;margin:26px 0 16px;color:#2b2b2b}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px}
+.card{background:#fff;border-radius:24px;padding:22px;box-shadow:0 4px 18px rgba(0,0,0,.05);border:1px solid rgba(0,0,0,.03)}
+.badge{display:inline-block;background:#fff1e7;color:#ff6b00;border-radius:999px;padding:6px 12px;font-size:12px;font-weight:800;margin-bottom:12px}
+.drink-name{font-size:23px;font-weight:900;margin-bottom:14px;line-height:1.35}
+.steps{line-height:1.9;color:#555;font-size:15.5px}
+.step-line{display:block;padding:3px 0;border-bottom:1px dashed rgba(0,0,0,.05)}
+.step-line:last-child{border-bottom:none}
+.step-no{color:#ff6b00;font-weight:900;margin-right:4px}
+.amount{color:#d9361c;font-weight:900;background:#fff3f0;padding:1px 4px;border-radius:6px}
+.tool{color:#1f6feb;font-weight:800}
+.note{color:#079455;font-weight:800;background:#ecfdf3;padding:1px 4px;border-radius:6px}
+.empty{display:none;text-align:center;color:#888;padding:50px 20px}
+footer{text-align:center;padding:40px 20px;color:#888}
+@media(max-width:640px){
+  header{padding:16px}.title{font-size:24px}.container{padding:16px}.grid{grid-template-columns:1fr}.drink-name{font-size:21px}.search{flex-direction:column;align-items:stretch}
 }
-
-.sub{
-  margin-top:5px;
-  color:#777;
-  font-size:14px;
-}
-
-.search{
-  margin-top:16px;
-}
-
-.search input{
-  width:100%;
-  padding:14px 16px;
-  border:none;
-  border-radius:14px;
-  background:#f1f1f1;
-  font-size:16px;
-  outline:none;
-}
-
-.container{
-  max-width:1280px;
-  margin:auto;
-  padding:22px;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-  gap:18px;
-}
-
-.card{
-  background:#fff;
-  border-radius:24px;
-  padding:22px;
-  box-shadow:0 4px 18px rgba(0,0,0,.05);
-}
-
-.badge{
-  display:inline-block;
-  background:#fff1e7;
-  color:#ff6b00;
-  border-radius:999px;
-  padding:6px 12px;
-  font-size:12px;
-  font-weight:800;
-  margin-bottom:12px;
-}
-
-.drink-name{
-  font-size:23px;
-  font-weight:900;
-  margin-bottom:14px;
-}
-
-.steps{
-  line-height:1.9;
-  color:#555;
-  font-size:15px;
-}
-
-.step-line{
-  display:block;
-  padding:4px 0;
-  border-bottom:1px dashed rgba(0,0,0,.05);
-}
-
-.step-no{
-  color:#ff6b00;
-  font-weight:900;
-}
-
-.amount{
-  color:#d9361c;
-  font-weight:900;
-}
-
-footer{
-  text-align:center;
-  padding:40px 20px;
-  color:#888;
-}
-
 </style>
 </head>
-
 <body>
-
-<!-- 密碼頁 -->
-
 <div id="loginPage">
-
   <div class="login-box">
-
-    <div class="login-title">
-      橘時咖啡
-    </div>
-
-    <div class="login-sub">
-      內部飲品配方系統
-    </div>
-
-    <input
-      id="passwordInput"
-      type="password"
-      placeholder="請輸入密碼"
-      class="login-input"
-    />
-
-    <button onclick="checkPassword()" class="login-btn">
-      進入系統
-    </button>
-
-    <div id="errorText">
-      密碼錯誤
-    </div>
-
+    <div class="login-title">橘時咖啡</div>
+    <div class="login-sub">內部飲品配方系統</div>
+    <input id="passwordInput" type="password" placeholder="請輸入密碼" class="login-input" />
+    <button onclick="checkPassword()" class="login-btn">進入系統</button>
+    <div id="errorText">密碼錯誤</div>
   </div>
-
 </div>
-
-<!-- 主頁 -->
-
 <header>
-  <div class="title">
-    橘時咖啡｜飲品配方查詢
-  </div>
-
-  <div class="sub">
-    OrangeTime Coffee Internal SOP
-  </div>
-
+  <div class="title">橘時咖啡｜飲品配方查詢</div>
+  <div class="sub">OrangeTime Coffee Internal SOP</div>
   <div class="search">
-    <input
-      type="text"
-      id="searchInput"
-      placeholder="搜尋飲品名稱..."
-    />
+    <input type="text" id="searchInput" placeholder="搜尋飲品名稱、分類、材料..." />
+    <div class="count" id="countText"></div>
   </div>
 </header>
-
 <div class="container">
-
-  <div class="grid" id="app"></div>
-
+  <div class="category-tabs" id="tabs"></div>
+  <div id="app"></div>
+  <div class="empty" id="empty">找不到符合的配方</div>
 </div>
-
-<footer>
-橘時咖啡內部教育訓練系統
-</footer>
-
+<footer>橘時咖啡內部教育訓練系統</footer>
 <script>
-
-/* 密碼 */
-
 function checkPassword(){
-
-  const password =
-    document.getElementById('passwordInput').value;
-
+  const password = document.getElementById('passwordInput').value;
   if(password === 'otc2026'){
-
-    document.getElementById('loginPage')
-      .style.display='none';
-
+    document.getElementById('loginPage').style.display='none';
   }else{
-
-    document.getElementById('errorText')
-      .style.display='block';
-
+    document.getElementById('errorText').style.display='block';
   }
-
 }
-
-document
-.getElementById('passwordInput')
-.addEventListener('keydown',function(e){
-
-  if(e.key === 'Enter'){
-    checkPassword();
-  }
-
+document.getElementById('passwordInput').addEventListener('keydown',function(e){
+  if(e.key === 'Enter') checkPassword();
 });
-
-/* 配方 */
-
 const recipes = [
   {
     "category": "義式咖啡",
@@ -1137,20 +943,12 @@ const recipes = [
     "section": "健康果昔"
   }
 ];
-
 const categoryOrder = ["義式咖啡", "果香冰咖啡", "在地茶", "鮮奶茶歐蕾", "特調花果茶", "鮮果氣泡飲", "風味調酒", "健康果昔"];
 let activeCategory = '全部';
-
-function escapeHtml(text) {
-  return String(text)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;');
+function escapeHtml(text){
+  return String(text).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;');
 }
-
-function highlight(text) {
+function highlight(text){
   let s = escapeHtml(text);
   s = s.replace(/^(\s*)(\d+\.)\s*/g, '$1<span class="step-no">$2</span> ');
   s = s.replace(/(\d+(?:\.\d+)?\s*(?:ml|g|顆|包|片|下|秒|分鐘|分滿|℃))/g, '<span class="amount">$1</span>');
@@ -1158,48 +956,35 @@ function highlight(text) {
   s = s.replace(/(氣泡水加滿|倒冰奶泡至滿杯|灑滿黑糖粉|加薄荷葉裝飾|不加冰塊|不能加檸檬片|不夠高再加果片\+冰塊|攪勻|裝飾|倒冰塊上)/g, '<span class="note">$1</span>');
   return s;
 }
-
-function getCategories() {
+function getCategories(){
   const set = [...new Set(recipes.map(r => r.category))];
-  return set.sort((a,b) => {
-    const ia = categoryOrder.indexOf(a);
-    const ib = categoryOrder.indexOf(b);
+  return set.sort((a,b)=>{
+    const ia = categoryOrder.indexOf(a), ib = categoryOrder.indexOf(b);
     return (ia === -1 ? 999 : ia) - (ib === -1 ? 999 : ib);
   });
 }
-
-function renderTabs() {
-  const tabs = document.getElementById('tabs');
+function renderTabs(){
   const categories = ['全部', ...getCategories()];
-  tabs.innerHTML = categories.map(cat => `<button class="tab ${cat === activeCategory ? 'active' : ''}" onclick="setCategory('${cat}')">${cat}</button>`).join('');
+  document.getElementById('tabs').innerHTML = categories.map(cat => `<button class="tab ${cat===activeCategory?'active':''}" onclick="setCategory('${cat}')">${cat}</button>`).join('');
 }
-
-function setCategory(cat) {
+function setCategory(cat){
   activeCategory = cat;
   renderTabs();
   renderRecipes();
 }
-
-function recipeMatches(recipe, keyword) {
+function recipeMatches(recipe, keyword){
   const text = [recipe.category, recipe.name, ...recipe.steps].join(' ').toLowerCase();
   return text.includes(keyword);
 }
-
-function renderRecipes() {
+function renderRecipes(){
   const app = document.getElementById('app');
   const keyword = document.getElementById('searchInput').value.trim().toLowerCase();
-  const filtered = recipes.filter(r => {
-    const catOk = activeCategory === '全部' || r.category === activeCategory;
-    const searchOk = !keyword || recipeMatches(r, keyword);
-    return catOk && searchOk;
-  });
-
+  const filtered = recipes.filter(r => (activeCategory === '全部' || r.category === activeCategory) && (!keyword || recipeMatches(r, keyword)));
   const grouped = {};
   filtered.forEach(r => {
-    if (!grouped[r.category]) grouped[r.category] = [];
+    if(!grouped[r.category]) grouped[r.category] = [];
     grouped[r.category].push(r);
   });
-
   const categories = getCategories().filter(cat => grouped[cat]);
   app.innerHTML = categories.map(cat => `
     <div class="section">
@@ -1209,19 +994,15 @@ function renderRecipes() {
           <div class="card">
             <div class="badge">${escapeHtml(r.category)}</div>
             <div class="drink-name">${escapeHtml(r.name)}</div>
-            <div class="steps">
-              ${r.steps.map(step => `<span class="step-line">${highlight(step)}</span>`).join('')}
-            </div>
+            <div class="steps">${r.steps.map(step => `<span class="step-line">${highlight(step)}</span>`).join('')}</div>
           </div>
         `).join('')}
       </div>
     </div>
   `).join('');
-
   document.getElementById('empty').style.display = filtered.length ? 'none' : 'block';
   document.getElementById('countText').textContent = `${filtered.length} / ${recipes.length} 筆`;
 }
-
 document.getElementById('searchInput').addEventListener('input', renderRecipes);
 renderTabs();
 renderRecipes();
