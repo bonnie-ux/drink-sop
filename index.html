@@ -47,7 +47,7 @@ header{
 .recipe-images{display:grid;gap:12px;margin-bottom:16px}
 .recipe-image-block{margin:0}
 .recipe-image-label{display:block;margin-bottom:6px;color:#777;font-size:13px;font-weight:800}
-.recipe-image{display:block;width:100%;max-height:280px;object-fit:contain;border-radius:16px;background:#fafafa}
+.recipe-image{display:block;width:100%;max-height:220px;object-fit:contain;border-radius:16px;background:#fafafa}
 .steps{line-height:1.9;color:#555;font-size:15.5px}
 .step-line{display:block;padding:3px 0;border-bottom:1px dashed rgba(0,0,0,.05)}
 .step-line:last-child{border-bottom:none}
@@ -58,7 +58,7 @@ header{
 .empty{display:none;text-align:center;color:#888;padding:50px 20px}
 footer{text-align:center;padding:40px 20px;color:#888}
 @media(max-width:640px){
-  header{padding:16px}.title{font-size:24px}.container{padding:16px}.grid{grid-template-columns:1fr}.drink-name{font-size:21px}.recipe-image{max-height:240px}.search{flex-direction:column;align-items:stretch}
+  header{padding:16px}.title{font-size:24px}.container{padding:16px}.grid{grid-template-columns:1fr}.drink-name{font-size:21px}.recipe-image{max-height:190px}.search{flex-direction:column;align-items:stretch}
 }
 </style>
 </head>
@@ -102,6 +102,8 @@ const recipes = [
  {
     "category": "義式咖啡",
     "name": "晨光美式黑咖啡（中熱）",
+    "dineInImage": "assets/drinks/morning-americano-medium-hot.webp",
+    "takeawayImage": "assets/drinks/takeaway-medium-12oz-blue.webp",
     "steps": [
       "1. 磨豆機取粉 20g",
       "2. 萃美式咖啡中杯鍵",
@@ -113,6 +115,8 @@ const recipes = [
   {
     "category": "義式咖啡",
     "name": "晨光美式黑咖啡（大熱）",
+    "dineInImage": "assets/drinks/morning-americano-large-hot.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 磨豆機取粉 20g",
       "2. 萃美式咖啡大杯鍵",
@@ -124,6 +128,8 @@ const recipes = [
   {
     "category": "義式咖啡",
     "name": "晨光美式黑咖啡（中冰）",
+    "dineInImage": "assets/drinks/morning-americano-medium-iced.webp",
+    "takeawayImage": "assets/drinks/takeaway-medium-12oz-blue.webp",
     "steps": [
       "1. 磨豆機取粉 20g",
       "2. 冰杯加滿冰塊",
@@ -136,6 +142,8 @@ const recipes = [
   {
     "category": "義式咖啡",
     "name": "晨光美式黑咖啡（大冰）",
+    "dineInImage": "assets/drinks/morning-americano-large-iced.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 磨豆機取粉 20g",
       "2. 萃美式咖啡大杯鍵",
@@ -148,6 +156,8 @@ const recipes = [
   {
     "category": "義式咖啡",
     "name": "雲霧卡布（中熱）",
+    "dineInImage": "assets/drinks/cloud-cappuccino-medium-hot.webp",
+    "takeawayImage": "assets/drinks/takeaway-medium-12oz-blue.webp",
     "steps": [
       "1. 磨豆機取粉 20g",
       "2. 萃卡布咖啡中杯鍵",
@@ -160,6 +170,8 @@ const recipes = [
   {
     "category": "義式咖啡",
     "name": "雲霧卡布（大熱）",
+    "dineInImage": "assets/drinks/cloud-cappuccino-large-hot.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 磨豆機取粉 20g",
       "2. 萃卡布咖啡大杯鍵",
@@ -172,6 +184,8 @@ const recipes = [
   {
     "category": "義式咖啡",
     "name": "雲霧卡布（中冰）",
+    "dineInImage": "assets/drinks/cloud-cappuccino-medium-iced.webp",
+    "takeawayImage": "assets/drinks/takeaway-medium-12oz-blue.webp",
     "steps": [
       "1. 磨豆機取粉 20g",
       "2. 萃卡布咖啡中杯鍵",
@@ -185,6 +199,8 @@ const recipes = [
   {
     "category": "義式咖啡",
     "name": "雲霧卡布（大冰）",
+    "dineInImage": "assets/drinks/cloud-cappuccino-large-iced.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 磨豆機取粉 20g",
       "2. 萃卡布咖啡大杯鍵",
@@ -196,6 +212,8 @@ const recipes = [
   {
     "category": "義式咖啡",
     "name": "柔光拿鐵（中熱）",
+    "dineInImage": "assets/drinks/soft-latte-medium-hot.webp",
+    "takeawayImage": "assets/drinks/takeaway-medium-12oz-blue.webp",
     "steps": [
       "1. 磨豆機取粉 20g",
       "2. 萃拿鐵咖啡中杯鍵",
@@ -209,6 +227,8 @@ const recipes = [
   {
     "category": "義式咖啡",
     "name": "柔光拿鐵（大熱）",
+    "dineInImage": "assets/drinks/soft-latte-large-hot.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 磨豆機取粉 20g",
       "2. 萃拿鐵咖啡大杯鍵",
@@ -222,6 +242,8 @@ const recipes = [
   {
     "category": "義式咖啡",
     "name": "柔光拿鐵（中冰）",
+    "dineInImage": "assets/drinks/soft-latte-medium-iced.webp",
+    "takeawayImage": "assets/drinks/takeaway-medium-12oz-blue.webp",
     "steps": [
       "1. 磨豆機取粉 20g",
       "2. 萃拿鐵咖啡中杯鍵",
@@ -234,6 +256,8 @@ const recipes = [
   {
     "category": "義式咖啡",
     "name": "柔光拿鐵（大冰）",
+    "dineInImage": "assets/drinks/soft-latte-large-iced.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 磨豆機取粉 20g",
       "2. 萃拿鐵咖啡大杯鍵",
@@ -246,6 +270,8 @@ const recipes = [
   {
     "category": "義式咖啡",
     "name": "琥珀瑪奇朵（中熱）",
+    "dineInImage": "assets/drinks/amber-macchiato-medium-hot.webp",
+    "takeawayImage": "assets/drinks/takeaway-medium-12oz-blue.webp",
     "steps": [
       "1. 磨豆機取粉 20g",
       "2. 萃卡布咖啡中杯鍵",
@@ -259,6 +285,8 @@ const recipes = [
   {
     "category": "義式咖啡",
     "name": "琥珀瑪奇朵（大熱）",
+    "dineInImage": "assets/drinks/amber-macchiato-large-hot.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 磨豆機取粉 20g",
       "2. 萃卡布咖啡大杯鍵",
@@ -272,6 +300,8 @@ const recipes = [
   {
     "category": "義式咖啡",
     "name": "琥珀瑪奇朵（中冰）",
+    "dineInImage": "assets/drinks/amber-macchiato-medium-iced.webp",
+    "takeawayImage": "assets/drinks/takeaway-medium-12oz-blue.webp",
     "steps": [
       "1. 磨豆機取粉 20g",
       "2. 萃卡布咖啡中杯鍵",
@@ -284,6 +314,8 @@ const recipes = [
   {
     "category": "義式咖啡",
     "name": "琥珀瑪奇朵（大冰）",
+    "dineInImage": "assets/drinks/amber-macchiato-large-iced.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 磨豆機取粉 20g",
       "2. 萃卡布咖啡大杯鍵",
@@ -297,6 +329,8 @@ const recipes = [
   {
     "category": "義式咖啡",
     "name": "香草晨光拿鐵（中熱）",
+    "dineInImage": "assets/drinks/vanilla-morning-latte-medium-hot.webp",
+    "takeawayImage": "assets/drinks/takeaway-medium-12oz-blue.webp",
     "steps": [
       "1. 磨豆機取粉 20g",
       "2. 萃拿鐵咖啡中杯鍵",
@@ -312,6 +346,8 @@ const recipes = [
   {
     "category": "義式咖啡",
     "name": "香草晨光拿鐵（大熱）",
+    "dineInImage": "assets/drinks/vanilla-morning-latte-large-hot.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 磨豆機取粉 20g",
       "2. 萃拿鐵咖啡大杯鍵",
@@ -327,6 +363,8 @@ const recipes = [
   {
     "category": "義式咖啡",
     "name": "香草晨光拿鐵（中冰）",
+    "dineInImage": "assets/drinks/vanilla-morning-latte-medium-iced.webp",
+    "takeawayImage": "assets/drinks/takeaway-medium-12oz-blue.webp",
     "steps": [
       "1. 磨豆機取粉 20g",
       "2. 萃拿鐵咖啡中杯鍵",
@@ -342,6 +380,8 @@ const recipes = [
   {
     "category": "義式咖啡",
     "name": "香草晨光拿鐵（大冰）",
+    "dineInImage": "assets/drinks/vanilla-morning-latte-large-iced.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 磨豆機取粉 20g",
       "2. 萃拿鐵咖啡大杯鍵",
@@ -357,6 +397,8 @@ const recipes = [
   {
     "category": "義式咖啡",
     "name": "榛果琥珀拿鐵（中熱）",
+    "dineInImage": "assets/drinks/hazelnut-amber-latte-medium-hot.webp",
+    "takeawayImage": "assets/drinks/takeaway-medium-12oz-blue.webp",
     "steps": [
       "1. 磨豆機取粉 20g",
       "2. 萃拿鐵咖啡中杯鍵",
@@ -369,6 +411,8 @@ const recipes = [
   {
     "category": "義式咖啡",
     "name": "榛果琥珀拿鐵（大熱）",
+    "dineInImage": "assets/drinks/hazelnut-amber-latte-large-hot.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 磨豆機取粉 20g",
       "2. 萃拿鐵咖啡大杯鍵",
@@ -383,6 +427,8 @@ const recipes = [
   {
     "category": "義式咖啡",
     "name": "榛果琥珀拿鐵（中冰）",
+    "dineInImage": "assets/drinks/hazelnut-amber-latte-medium-iced.webp",
+    "takeawayImage": "assets/drinks/takeaway-medium-12oz-blue.webp",
     "steps": [
       "1. 磨豆機取粉 20g",
       "2. 萃拿鐵咖啡中杯鍵",
@@ -396,6 +442,8 @@ const recipes = [
   {
     "category": "義式咖啡",
     "name": "榛果琥珀拿鐵（大冰）",
+    "dineInImage": "assets/drinks/hazelnut-amber-latte-large-iced.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 磨豆機取粉 20g",
       "2. 萃拿鐵咖啡大杯鍵",
@@ -410,6 +458,8 @@ const recipes = [
   {
     "category": "義式咖啡",
     "name": "黑糖濃韻拿鐵（中熱）",
+    "dineInImage": "assets/drinks/brown-sugar-latte-medium-hot.webp",
+    "takeawayImage": "assets/drinks/takeaway-medium-12oz-blue.webp",
     "steps": [
       "1. 磨豆機取粉 20g",
       "2. 萃拿鐵咖啡中杯鍵",
@@ -425,6 +475,8 @@ const recipes = [
   {
     "category": "義式咖啡",
     "name": "黑糖濃韻拿鐵（中冰）",
+    "dineInImage": "assets/drinks/brown-sugar-latte-medium-iced.webp",
+    "takeawayImage": "assets/drinks/takeaway-medium-12oz-blue.webp",
     "steps": [
       "1. 磨豆機取粉 20g",
       "2. 萃拿鐵咖啡中杯鍵",
@@ -440,6 +492,8 @@ const recipes = [
   {
     "category": "義式咖啡",
     "name": "黑糖濃韻拿鐵（大熱）",
+    "dineInImage": "assets/drinks/brown-sugar-latte-large-hot.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 磨豆機取粉 20g",
       "2. 萃拿鐵咖啡大杯鍵",
@@ -455,6 +509,8 @@ const recipes = [
   {
     "category": "義式咖啡",
     "name": "黑糖濃韻拿鐵（大冰）",
+    "dineInImage": "assets/drinks/brown-sugar-latte-large-iced.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 磨豆機取粉 20g",
       "2. 萃拿鐵咖啡大杯鍵",
@@ -470,6 +526,8 @@ const recipes = [
   {
     "category": "義式咖啡",
     "name": "玫瑰鹽之戀（中熱）",
+    "dineInImage": "assets/drinks/rose-salt-love-medium-hot.webp",
+    "takeawayImage": "assets/drinks/takeaway-medium-12oz-blue.webp",
     "steps": [
       "1. 磨豆機取粉 20g",
       "2. 萃拿鐵咖啡中杯鍵",
@@ -483,6 +541,8 @@ const recipes = [
   {
     "category": "義式咖啡",
     "name": "玫瑰鹽之戀（大熱）",
+    "dineInImage": "assets/drinks/rose-salt-love-large-hot.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 磨豆機取粉 20g",
       "2. 萃拿鐵咖啡大杯鍵",
@@ -496,6 +556,8 @@ const recipes = [
   {
     "category": "義式咖啡",
     "name": "玫瑰鹽之戀（中冰）",
+    "dineInImage": "assets/drinks/rose-salt-love-medium-iced.webp",
+    "takeawayImage": "assets/drinks/takeaway-medium-12oz-blue.webp",
     "steps": [
       "1. 磨豆機取粉 20g",
       "2. 萃拿鐵咖啡中杯鍵",
@@ -510,6 +572,8 @@ const recipes = [
   {
     "category": "義式咖啡",
     "name": "玫瑰鹽之戀（大冰）",
+    "dineInImage": "assets/drinks/rose-salt-love-large-iced.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 磨豆機取粉 20g",
       "2. 萃拿鐵咖啡大杯鍵",
@@ -525,6 +589,8 @@ const recipes = [
   {
     "category": "果香冰咖啡",
     "name": "檸韻果香咖啡",
+    "dineInImage": "assets/drinks/lemon-fruit-coffee.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 磨豆機取粉 20g",
       "2. 萃拿鐵咖啡中杯鍵",
@@ -540,6 +606,8 @@ const recipes = [
   {
     "category": "果香冰咖啡",
     "name": "甘蔗晨光咖啡",
+    "dineInImage": "assets/drinks/sugarcane-morning-coffee.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 磨豆機取粉 20g",
       "2. 萃拿鐵咖啡中杯鍵",
@@ -554,6 +622,8 @@ const recipes = [
   {
     "category": "果香冰咖啡",
     "name": "紅柚沁香咖啡",
+    "dineInImage": "assets/drinks/grapefruit-coffee.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 磨豆機取粉 20g",
       "2. 萃拿鐵咖啡中杯鍵",
@@ -567,6 +637,8 @@ const recipes = [
   {
     "category": "果香冰咖啡",
     "name": "橘時招牌咖啡",
+    "dineInImage": "assets/drinks/orangetime-signature-coffee.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 磨豆機取粉 20g",
       "2. 萃拿鐵咖啡中杯鍵",
@@ -581,6 +653,8 @@ const recipes = [
   {
     "category": "果香冰咖啡",
     "name": "椰香西西里",
+    "dineInImage": "assets/drinks/coconut-sicily.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 磨豆機取粉 20g",
       "2. 萃拿鐵咖啡中杯鍵",
@@ -596,6 +670,8 @@ const recipes = [
   {
     "category": "在地茶",
     "name": "橘香烏龍",
+    "dineInImage": "assets/drinks/orange-oolong.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 茶壺內膽放茶葉 2g",
       "2. 熱水 450ml",
@@ -606,6 +682,8 @@ const recipes = [
   {
     "category": "在地茶",
     "name": "蜜香紅茶",
+    "dineInImage": "assets/drinks/honey-black-tea.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 茶壺內膽放茶葉 2g",
       "2. 熱水 450ml",
@@ -616,6 +694,8 @@ const recipes = [
   {
     "category": "在地茶",
     "name": "黃金蕎麥茶",
+    "dineInImage": "assets/drinks/golden-buckwheat-tea.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 茶壺內膽放蕎麥 6g",
       "2. 熱水 450ml",
@@ -626,6 +706,8 @@ const recipes = [
   {
     "category": "鮮奶茶歐蕾",
     "name": "抹茶山風歐蕾（熱）",
+    "dineInImage": "assets/drinks/matcha-mountain-au-lait-hot.webp",
+    "takeawayImage": "assets/drinks/takeaway-medium-12oz-blue.webp",
     "steps": [
       "1. 熱杯",
       "2. 奶泡鋼杯加入：",
@@ -641,6 +723,8 @@ const recipes = [
   {
     "category": "鮮奶茶歐蕾",
     "name": "抹茶山風歐蕾（冰）",
+    "dineInImage": "assets/drinks/matcha-mountain-au-lait-iced.webp",
+    "takeawayImage": "assets/drinks/takeaway-medium-12oz-blue.webp",
     "steps": [
       "1. 鋼杯加入：",
       "2. 抹茶粉 4g",
@@ -657,6 +741,8 @@ const recipes = [
   {
     "category": "鮮奶茶歐蕾",
     "name": "雲霧奶香紅茶（熱）",
+    "dineInImage": "assets/drinks/cloud-milk-black-tea-hot.webp",
+    "takeawayImage": "assets/drinks/takeaway-medium-12oz-blue.webp",
     "steps": [
       "1. 熱杯",
       "2. 奶泡鋼杯加",
@@ -670,6 +756,8 @@ const recipes = [
   {
     "category": "鮮奶茶歐蕾",
     "name": "雲霧奶香紅茶（冰）",
+    "dineInImage": "assets/drinks/cloud-milk-black-tea-iced.webp",
+    "takeawayImage": "assets/drinks/takeaway-medium-12oz-blue.webp",
     "steps": [
       "1. 咖啡冰杯",
       "2. 糖水 25ml",
@@ -684,6 +772,8 @@ const recipes = [
   {
     "category": "鮮奶茶歐蕾",
     "name": "可可濃語歐蕾（熱）",
+    "dineInImage": "assets/drinks/cocoa-au-lait-hot.webp",
+    "takeawayImage": "assets/drinks/takeaway-medium-12oz-blue.webp",
     "steps": [
       "1. 巧克力 30g",
       "2. 牛奶 200ml",
@@ -698,6 +788,8 @@ const recipes = [
   {
     "category": "鮮奶茶歐蕾",
     "name": "可可濃語歐蕾（冰）",
+    "dineInImage": "assets/drinks/cocoa-au-lait-iced.webp",
+    "takeawayImage": "assets/drinks/takeaway-medium-12oz-blue.webp",
     "steps": [
       "1. 巧克力 30g",
       "2. 牛奶 80ml",
@@ -712,6 +804,8 @@ const recipes = [
   {
     "category": "鮮奶茶歐蕾",
     "name": "黑糖雲霧奶茶（熱）",
+    "dineInImage": "assets/drinks/brown-sugar-cloud-milk-tea-hot.webp",
+    "takeawayImage": "assets/drinks/takeaway-medium-12oz-blue.webp",
     "steps": [
       "1. 奶泡鋼杯加",
       "2. 黑糖漿 45ml",
@@ -727,6 +821,8 @@ const recipes = [
   {
     "category": "鮮奶茶歐蕾",
     "name": "黑糖雲霧奶茶（冰）",
+    "dineInImage": "assets/drinks/brown-sugar-cloud-milk-tea-iced.webp",
+    "takeawayImage": "assets/drinks/takeaway-medium-12oz-blue.webp",
     "steps": [
       "1. 冰杯加",
       "2. 黑糖漿 45ml",
@@ -742,6 +838,8 @@ const recipes = [
   {
     "category": "特調花果茶",
     "name": "薄荷香草風（熱）",
+    "dineInImage": "assets/drinks/mint-vanilla-breeze-hot.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 玻璃壺放入香草果露 45ml，再攪拌",
       "2. 放元氣勁茶茶包 1包",
@@ -755,6 +853,8 @@ const recipes = [
   {
     "category": "特調花果茶",
     "name": "薄荷香草風（冰）",
+    "dineInImage": "assets/drinks/mint-vanilla-breeze-iced.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 鋼杯放元氣勁茶茶包 1包",
       "2. 熱水 120ml，泡 1分鐘後攪拌 15下",
@@ -770,6 +870,8 @@ const recipes = [
   {
     "category": "特調花果茶",
     "name": "莓好時光（熱）",
+    "dineInImage": "assets/drinks/berry-good-time-hot.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 玻璃壺加入荔枝果露 45ml",
       "2. 糖水 15ml",
@@ -784,6 +886,8 @@ const recipes = [
   {
     "category": "特調花果茶",
     "name": "莓好時光（冰）",
+    "dineInImage": "assets/drinks/berry-good-time-iced.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 鋼杯放多莓果茶包 1包",
       "2. 熱水 120ml，泡 1分鐘後攪拌 15下",
@@ -800,6 +904,8 @@ const recipes = [
   {
     "category": "特調花果茶",
     "name": "蜜桃雲瀑茶（冰）",
+    "dineInImage": "assets/drinks/peach-waterfall-tea-iced.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 冰奶泡杯加入蜜桃果露 60ml",
       "2. 基底紅茶 240ml",
@@ -812,6 +918,8 @@ const recipes = [
 {
   "category": "特調花果茶",
   "name": "夏島果香茶（熱）",
+    "dineInImage": "assets/drinks/island-fruit-tea-hot.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
   "steps": [
     "1. 玻璃壺放覆盆子果露 45ml",
     "2. 白葡萄果漿 60ml，再攪拌",
@@ -826,6 +934,8 @@ const recipes = [
 {
   "category": "特調花果茶",
   "name": "夏島果香茶（冰）",
+    "dineInImage": "assets/drinks/island-fruit-tea-iced.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
   "steps": [
     "1. 鋼杯放夏威夷茶包 1包",
     "2. 熱水 120ml，泡 1分鐘後攪拌 15下",
@@ -841,6 +951,8 @@ const recipes = [
 {
   "category": "特調花果茶",
   "name": "鮮果陽光茶（熱）",
+    "dineInImage": "assets/drinks/sunshine-fruit-tea-hot.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
   "steps": [
     "1. 玻璃壺放百香果露 30ml",
     "2. 鳳梨果漿 30ml",
@@ -858,6 +970,8 @@ const recipes = [
 {
   "category": "特調花果茶",
   "name": "鮮果陽光茶（冰）",
+    "dineInImage": "assets/drinks/sunshine-fruit-tea-iced.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
   "steps": [
     "1. 鋼杯放四果茶包 1包",
     "2. 熱水 120ml，泡 1分鐘後攪拌 15下",
@@ -877,6 +991,8 @@ const recipes = [
   {
     "category": "鮮果氣泡飲",
     "name": "葡桃蘋果氣泡",
+    "dineInImage": "assets/drinks/grape-peach-apple-sparkling.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 白葡萄果露 30ml",
       "2. 蘋果果露 30ml",
@@ -892,6 +1008,8 @@ const recipes = [
   {
     "category": "鮮果氣泡飲",
     "name": "黑醋香橙氣泡",
+    "dineInImage": "assets/drinks/blackcurrant-orange-sparkling.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 黑醋栗果露 30ml",
       "2. 柳橙果漿 30ml",
@@ -907,6 +1025,8 @@ const recipes = [
   {
     "category": "鮮果氣泡飲",
     "name": "莓莓桃香氣泡",
+    "dineInImage": "assets/drinks/berry-peach-sparkling.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 覆盆子果露 30ml",
       "2. 水蜜桃果露 30ml",
@@ -921,6 +1041,8 @@ const recipes = [
   {
     "category": "鮮果氣泡飲",
     "name": "荔香玫瑰氣泡",
+    "dineInImage": "assets/drinks/lychee-rose-sparkling.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 玫瑰果露 30ml",
       "2. 荔枝果露 30ml",
@@ -935,6 +1057,8 @@ const recipes = [
   {
     "category": "鮮果氣泡飲",
     "name": "鳳百氣泡飲",
+    "dineInImage": "assets/drinks/pineapple-passion-sparkling.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 梅森瓶",
       "2. 鳳梨果漿 30ml",
@@ -951,6 +1075,8 @@ const recipes = [
   {
     "category": "風味調酒",
     "name": "玫瑰鹽之夜",
+    "dineInImage": "assets/drinks/rose-salt-night.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 用檸檬片在杯口畫一圈",
       "2. 杯口沾一圈玫瑰鹽",
@@ -965,6 +1091,8 @@ const recipes = [
   {
     "category": "風味調酒",
     "name": "蜜果微醺",
+    "dineInImage": "assets/drinks/tipsy-honey-fruit.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 杯口杯口沾一圈玫瑰鹽",
       "2. 冰塊 9顆",
@@ -978,6 +1106,8 @@ const recipes = [
   {
     "category": "風味調酒",
     "name": "海洋微光",
+    "dineInImage": "assets/drinks/ocean-glow.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 藍柑橘果露 15ml",
       "2. 檸檬汁 30ml",
@@ -992,6 +1122,8 @@ const recipes = [
   {
     "category": "健康果昔",
     "name": "熱帶芒果",
+    "dineInImage": "assets/drinks/tropical-mango.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 冰沙機放入熱情芒芒水果包 1包",
       "2. 水 130ml",
@@ -1005,6 +1137,8 @@ const recipes = [
   {
     "category": "健康果昔",
     "name": "翡翠果然",
+    "dineInImage": "assets/drinks/emerald-fruit.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 冰沙機放入翡翠綜合水果包 1包",
       "2. 水 140ml",
@@ -1017,6 +1151,8 @@ const recipes = [
   {
     "category": "健康果昔",
     "name": "莓檸清爽",
+    "dineInImage": "assets/drinks/berry-lemon-refresh.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 冰沙機放入草莓檸檬水果包 1包",
       "2. 水 40ml",
@@ -1030,6 +1166,8 @@ const recipes = [
   {
     "category": "健康果昔",
     "name": "綠野果昔",
+    "dineInImage": "assets/drinks/green-smoothie.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 冰沙機放入綠果昔水果包 1包",
       "2. 水 150ml",
@@ -1042,6 +1180,8 @@ const recipes = [
   {
     "category": "健康果昔",
     "name": "紅果盛宴",
+    "dineInImage": "assets/drinks/red-fruit-feast.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 冰沙機放入紅果昔水果包 1包",
       "2. 水 160ml",
@@ -1054,6 +1194,8 @@ const recipes = [
   {
     "category": "健康果昔",
     "name": "甜蜜木瓜",
+    "dineInImage": "assets/drinks/sweet-papaya.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
     "steps": [
       "1. 冰沙機放入木瓜水果包 1包",
       "2. 水 40ml",
@@ -1067,8 +1209,8 @@ const recipes = [
   {
   "category": "初夏的草莓",
   "name": "莓果微光",
-  "dineInImage": "assets/strawberry/strawberry-sparkle.webp",
-  "takeawayImage": "assets/strawberry/blue-cup-16oz.webp",
+    "dineInImage": "assets/strawberry/strawberry-sparkle.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
   "steps": [
     "1. 草莓果醬 15g",
     "2. 草莓果露 25ml",
@@ -1083,8 +1225,8 @@ const recipes = [
 {
   "category": "初夏的草莓",
   "name": "莓果西西里",
-  "dineInImage": "assets/strawberry/strawberry-sicily.webp",
-  "takeawayImage": "assets/strawberry/blue-cup-16oz.webp",
+    "dineInImage": "assets/strawberry/strawberry-sicily.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
   "steps": [
     "1. 草莓果醬 15g",
     "2. 草莓果露 30ml",
@@ -1099,8 +1241,8 @@ const recipes = [
 {
   "category": "初夏的草莓",
   "name": "莓香紅韻",
-  "dineInImage": "assets/strawberry/strawberry-black-tea.webp",
-  "takeawayImage": "assets/strawberry/blue-cup-16oz.webp",
+    "dineInImage": "assets/strawberry/strawberry-black-tea.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
   "steps": [
     "1. 草莓果醬 15g",
     "2. 草莓果露 25ml",
@@ -1113,8 +1255,8 @@ const recipes = [
 {
   "category": "初夏的草莓",
   "name": "粉紅拾光",
-  "dineInImage": "assets/strawberry/strawberry-pink-glow.webp",
-  "takeawayImage": "assets/strawberry/blue-cup-16oz.webp",
+    "dineInImage": "assets/strawberry/strawberry-pink-glow.webp",
+    "takeawayImage": "assets/drinks/takeaway-large-16oz-orange.webp",
   "steps": [
     "1. 草莓果醬 10g",
     "2. 草莓果露 20ml",
