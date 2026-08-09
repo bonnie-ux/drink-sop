@@ -44,6 +44,10 @@ header{
 .card{background:#fff;border-radius:24px;padding:22px;box-shadow:0 4px 18px rgba(0,0,0,.05);border:1px solid rgba(0,0,0,.03)}
 .badge{display:inline-block;background:#fff1e7;color:#ff6b00;border-radius:999px;padding:6px 12px;font-size:12px;font-weight:800;margin-bottom:12px}
 .drink-name{font-size:23px;font-weight:900;margin-bottom:14px;line-height:1.35}
+.recipe-images{display:grid;gap:12px;margin-bottom:16px}
+.recipe-image-block{margin:0}
+.recipe-image-label{display:block;margin-bottom:6px;color:#777;font-size:13px;font-weight:800}
+.recipe-image{display:block;width:100%;max-height:440px;object-fit:contain;border-radius:16px;background:#fafafa}
 .steps{line-height:1.9;color:#555;font-size:15.5px}
 .step-line{display:block;padding:3px 0;border-bottom:1px dashed rgba(0,0,0,.05)}
 .step-line:last-child{border-bottom:none}
@@ -1063,6 +1067,8 @@ const recipes = [
   {
   "category": "初夏的草莓",
   "name": "莓果微光",
+  "dineInImage": "assets/strawberry/strawberry-sparkle.webp",
+  "takeawayImage": "assets/strawberry/blue-cup-16oz.webp",
   "steps": [
     "1. 草莓果醬 15g",
     "2. 草莓果露 25ml",
@@ -1077,6 +1083,8 @@ const recipes = [
 {
   "category": "初夏的草莓",
   "name": "莓果西西里",
+  "dineInImage": "assets/strawberry/strawberry-sicily.webp",
+  "takeawayImage": "assets/strawberry/blue-cup-16oz.webp",
   "steps": [
     "1. 草莓果醬 15g",
     "2. 草莓果露 30ml",
@@ -1091,6 +1099,8 @@ const recipes = [
 {
   "category": "初夏的草莓",
   "name": "莓香紅韻",
+  "dineInImage": "assets/strawberry/strawberry-black-tea.webp",
+  "takeawayImage": "assets/strawberry/blue-cup-16oz.webp",
   "steps": [
     "1. 草莓果醬 15g",
     "2. 草莓果露 25ml",
@@ -1103,6 +1113,8 @@ const recipes = [
 {
   "category": "初夏的草莓",
   "name": "粉紅拾光",
+  "dineInImage": "assets/strawberry/strawberry-pink-glow.webp",
+  "takeawayImage": "assets/strawberry/blue-cup-16oz.webp",
   "steps": [
     "1. 草莓果醬 10g",
     "2. 草莓果露 20ml",
@@ -1158,6 +1170,21 @@ function recipeMatches(recipe, keyword){
   const text = [recipe.category, recipe.name, ...recipe.steps].join(' ').toLowerCase();
   return text.includes(keyword);
 }
+function renderRecipeImages(recipe){
+  if(!recipe.dineInImage || !recipe.takeawayImage) return '';
+  return `
+    <div class="recipe-images">
+      <figure class="recipe-image-block">
+        <figcaption class="recipe-image-label">內用</figcaption>
+        <img class="recipe-image" src="${escapeHtml(recipe.dineInImage)}" alt="${escapeHtml(recipe.name)}內用成品" loading="lazy">
+      </figure>
+      <figure class="recipe-image-block">
+        <figcaption class="recipe-image-label">外帶</figcaption>
+        <img class="recipe-image" src="${escapeHtml(recipe.takeawayImage)}" alt="${escapeHtml(recipe.name)}外帶杯" loading="lazy">
+      </figure>
+    </div>
+  `;
+}
 function renderRecipes(){
   const app = document.getElementById('app');
   const keyword = document.getElementById('searchInput').value.trim().toLowerCase();
@@ -1176,6 +1203,7 @@ function renderRecipes(){
           <div class="card">
             <div class="badge">${escapeHtml(r.category)}</div>
             <div class="drink-name">${escapeHtml(r.name)}</div>
+            ${renderRecipeImages(r)}
             <div class="steps">${r.steps.map(step => `<span class="step-line">${highlight(step)}</span>`).join('')}</div>
           </div>
         `).join('')}
