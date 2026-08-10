@@ -12,19 +12,6 @@ body{
   background:#f5f2ed;
   color:#2b2b2b;
 }
-#loginPage{
-  position:fixed;inset:0;background:#f5f2ed;display:flex;
-  align-items:center;justify-content:center;z-index:9999;
-}
-.login-box{
-  background:#fff;padding:40px;border-radius:24px;width:90%;max-width:380px;
-  box-shadow:0 10px 40px rgba(0,0,0,.12);text-align:center;
-}
-.login-title{font-size:32px;font-weight:900;color:#ff6b00;margin-bottom:10px}
-.login-sub{color:#777;margin-bottom:24px;font-size:14px}
-.login-input{width:100%;padding:14px;border:none;border-radius:14px;background:#f1f1f1;font-size:16px;outline:none;margin-bottom:16px}
-.login-btn{width:100%;padding:14px;border:none;border-radius:14px;background:#ff6b00;color:white;font-size:16px;font-weight:900;cursor:pointer}
-#errorText{color:#d92d20;font-size:13px;margin-top:14px;display:none}
 header{
   position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);
   padding:18px 20px;box-shadow:0 2px 12px rgba(0,0,0,.06);backdrop-filter:blur(10px);
@@ -63,15 +50,6 @@ footer{text-align:center;padding:40px 20px;color:#888}
 </style>
 </head>
 <body>
-<div id="loginPage">
-  <div class="login-box">
-    <div class="login-title">橘時咖啡</div>
-    <div class="login-sub">內部飲品配方系統</div>
-    <input id="passwordInput" type="password" placeholder="請輸入密碼" class="login-input" />
-    <button onclick="checkPassword()" class="login-btn">進入系統</button>
-    <div id="errorText">密碼錯誤</div>
-  </div>
-</div>
 <header>
   <div class="title">橘時咖啡｜飲品配方查詢</div>
   <div class="sub">OrangeTime Coffee Internal SOP</div>
@@ -87,17 +65,6 @@ footer{text-align:center;padding:40px 20px;color:#888}
 </div>
 <footer>橘時咖啡內部教育訓練系統</footer>
 <script>
-function checkPassword(){
-  const password = document.getElementById('passwordInput').value;
-  if(password === 'orangetime2018'){
-    document.getElementById('loginPage').style.display='none';
-  }else{
-    document.getElementById('errorText').style.display='block';
-  }
-}
-document.getElementById('passwordInput').addEventListener('keydown',function(e){
-  if(e.key === 'Enter') checkPassword();
-});
 const recipes = [
  {
     "category": "義式咖啡",
